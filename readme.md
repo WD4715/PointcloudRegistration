@@ -243,7 +243,7 @@ dpkg -l | grep libboost
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/PointCloudProcessing.git
+   git clone https://github.com/WD4715/PointcloudRegistration.git
    cd PointCloudProcessing
 
 2. Create a build directory and run CMake:
