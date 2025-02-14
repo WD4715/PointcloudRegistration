@@ -132,112 +132,111 @@ Operating System: Ubuntu 20.04
 ### 1. Basic Development Tools Installation
 First, update your system and install the essential development tools:
 
-
-```bash 
-# Update and upgrade your system
-sudo apt update
-sudo apt upgrade
-
-# Install basic development tools
-sudo apt install -y build-essential cmake git pkg-config wget
-```
+  ```bash 
+  # Update and upgrade your system
+  sudo apt update
+  sudo apt upgrade
+  
+  # Install basic development tools
+  sudo apt install -y build-essential cmake git pkg-config wget
+  ```
 ### 2. OpenCV 4.4.0 Installation
 Step 1: Install Dependencies
-
-```bash
-sudo apt install -y build-essential cmake pkg-config
-sudo apt install -y libjpeg-dev libpng-dev libtiff-dev
-sudo apt install -y libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
-sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-sudo apt install -y libxvidcore-dev x264 libx264-dev libfaac-dev libmp3lame-dev libtheora-dev
-sudo apt install -y libfaac-dev libmp3lame-dev libvorbis-dev
-sudo apt install -y libopencore-amrnb-dev libopencore-amrwb-dev
-sudo apt install -y libgtk-3-dev
-sudo apt install -y python3-dev python3-numpy
-sudo apt install -y libtbb-dev
-sudo apt install -y libatlas-base-dev gfortran
-sudo apt install -y libprotobuf-dev protobuf-compiler
-sudo apt install -y libgoogle-glog-dev libgflags-dev
-sudo apt install -y libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
-```
+  
+  ```bash
+  sudo apt install -y build-essential cmake pkg-config
+  sudo apt install -y libjpeg-dev libpng-dev libtiff-dev
+  sudo apt install -y libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
+  sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+  sudo apt install -y libxvidcore-dev x264 libx264-dev libfaac-dev libmp3lame-dev libtheora-dev
+  sudo apt install -y libfaac-dev libmp3lame-dev libvorbis-dev
+  sudo apt install -y libopencore-amrnb-dev libopencore-amrwb-dev
+  sudo apt install -y libgtk-3-dev
+  sudo apt install -y python3-dev python3-numpy
+  sudo apt install -y libtbb-dev
+  sudo apt install -y libatlas-base-dev gfortran
+  sudo apt install -y libprotobuf-dev protobuf-compiler
+  sudo apt install -y libgoogle-glog-dev libgflags-dev
+  sudo apt install -y libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
+  ```
 
 Step 2: Download and Build OpenCV
-```bash
-# Download OpenCV 4.4.0 and opencv_contrib modules
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.4.0.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.4.0.zip
-unzip opencv.zip
-unzip opencv_contrib.zip
-
-# Create a build directory and configure the build
-cd opencv-4.4.0
-mkdir build && cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      -D CMAKE_INSTALL_PREFIX=/usr/local \
-      -D INSTALL_PYTHON_EXAMPLES=OFF \
-      -D INSTALL_C_EXAMPLES=OFF \
-      -D OPENCV_ENABLE_NONFREE=ON \
-      -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.4.0/modules \
-      -D PYTHON_EXECUTABLE=/usr/bin/python3 \
-      -D BUILD_EXAMPLES=OFF ..
-
-# Build and install OpenCV
-make -j$(nproc)
-sudo make install
-sudo ldconfig
-
-```
+  ```bash
+  # Download OpenCV 4.4.0 and opencv_contrib modules
+  wget -O opencv.zip https://github.com/opencv/opencv/archive/4.4.0.zip
+  wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.4.0.zip
+  unzip opencv.zip
+  unzip opencv_contrib.zip
+  
+  # Create a build directory and configure the build
+  cd opencv-4.4.0
+  mkdir build && cd build
+  cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D INSTALL_PYTHON_EXAMPLES=OFF \
+        -D INSTALL_C_EXAMPLES=OFF \
+        -D OPENCV_ENABLE_NONFREE=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.4.0/modules \
+        -D PYTHON_EXECUTABLE=/usr/bin/python3 \
+        -D BUILD_EXAMPLES=OFF ..
+  
+  # Build and install OpenCV
+  make -j$(nproc)
+  sudo make install
+  sudo ldconfig
+  
+  ```
 ### 3. PCL 1.10.0 and Dependencies Installation
 Step 1: Install PCL 1.10.0 Packages
-```bash
-sudo apt install -y libpcl-dev=1.10.0* \
-                    libpcl-apps1.10=1.10.0* \
-                    libpcl-common1.10=1.10.0* \
-                    libpcl-features1.10=1.10.0* \
-                    libpcl-filters1.10=1.10.0* \
-                    libpcl-io1.10=1.10.0* \
-                    libpcl-kdtree1.10=1.10.0* \
-                    libpcl-keypoints1.10=1.10.0* \
-                    libpcl-ml1.10=1.10.0* \
-                    libpcl-octree1.10=1.10.0* \
-                    libpcl-outofcore1.10=1.10.0* \
-                    libpcl-people1.10=1.10.0* \
-                    libpcl-recognition1.10=1.10.0* \
-                    libpcl-registration1.10=1.10.0* \
-                    libpcl-sample-consensus1.10=1.10.0* \
-                    libpcl-search1.10=1.10.0* \
-                    libpcl-segmentation1.10=1.10.0* \
-                    libpcl-stereo1.10=1.10.0* \
-                    libpcl-surface1.10=1.10.0* \
-                    libpcl-tracking1.10=1.10.0* \
-                    libpcl-visualization1.10=1.10.0*
-
-```
+  ```bash
+  sudo apt install -y libpcl-dev=1.10.0* \
+                      libpcl-apps1.10=1.10.0* \
+                      libpcl-common1.10=1.10.0* \
+                      libpcl-features1.10=1.10.0* \
+                      libpcl-filters1.10=1.10.0* \
+                      libpcl-io1.10=1.10.0* \
+                      libpcl-kdtree1.10=1.10.0* \
+                      libpcl-keypoints1.10=1.10.0* \
+                      libpcl-ml1.10=1.10.0* \
+                      libpcl-octree1.10=1.10.0* \
+                      libpcl-outofcore1.10=1.10.0* \
+                      libpcl-people1.10=1.10.0* \
+                      libpcl-recognition1.10=1.10.0* \
+                      libpcl-registration1.10=1.10.0* \
+                      libpcl-sample-consensus1.10=1.10.0* \
+                      libpcl-search1.10=1.10.0* \
+                      libpcl-segmentation1.10=1.10.0* \
+                      libpcl-stereo1.10=1.10.0* \
+                      libpcl-surface1.10=1.10.0* \
+                      libpcl-tracking1.10=1.10.0* \
+                      libpcl-visualization1.10=1.10.0*
+  
+  ```
 Step 2: Install Additional PCL Dependencies
-```bash
-sudo apt install -y libvtk7-dev libvtk7-qt-dev
-sudo apt install -y libflann-dev
-sudo apt install -y libqhull-dev
-sudo apt install -y libboost-all-dev
-sudo apt install -y libeigen3-dev
-
-```
+  ```bash
+  sudo apt install -y libvtk7-dev libvtk7-qt-dev
+  sudo apt install -y libflann-dev
+  sudo apt install -y libqhull-dev
+  sudo apt install -y libboost-all-dev
+  sudo apt install -y libeigen3-dev
+  
+  ```
 ### 4. Verify Installation
 
 
 #### OpenCV Version:
-```bash
-pkg-config --modversion opencv4
-```
+  ```bash
+  pkg-config --modversion opencv4
+  ```
 #### PCL Version:
-```bash
-dpkg -l | grep libpcl
-```
+  ```bash
+  dpkg -l | grep libpcl
+  ```
 #### Boost Version:
-``` bash
-dpkg -l | grep libboost
-
-```
+  ``` bash
+  dpkg -l | grep libboost
+  
+  ```
 
 
 
@@ -263,14 +262,14 @@ dpkg -l | grep libboost
 ### Running
 Provide at least a reference image path and a real data image path, along with optional visualization flags:
 
-```bash
-./PointCloudProcessing <reference_path> <real_path> [<vis1> ... <vis11>]
-
-```
+  ```bash
+  ./PointCloudProcessing <reference_path> <real_path> [<vis1> ... <vis11>]
+  
+  ```
 Example:
 
-```bash
-./PointCloudProcessing /path/to/MASTER_SIDE.tiff /path/to/REAL_SIDE.tiff true false true false false false false false false false true
-
-```
+  ```bash
+  ./PointCloudProcessing /path/to/MASTER_SIDE.tiff /path/to/REAL_SIDE.tiff true false true false false false false false false false true
+  
+  ```
 If the visualization flags are not fully provided, the defaults are: vis1–vis10 = false and vis11 = true.
