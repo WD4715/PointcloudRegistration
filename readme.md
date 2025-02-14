@@ -24,7 +24,11 @@ The project processes two types of data:
 After registration, the overall transformation from the origin to the real data is computed by combining the registration matrices. For example, for REAL_SIDE:
 
 ```math
-T_align = translationMat_side * SecondTransformationMatrix * InitialTransformationMatrix T_final = (T_align)^{(-1)}
+T_{align} = translationMat_{side} * SecondTransformationMatrix * InitialTransformationMatrix
+```
+
+```math
+T_{final} = (T_{align})^{(-1)}
 ```
 
 Similar calculations are performed for REAL_TOP and REAL_BOTTOM.
