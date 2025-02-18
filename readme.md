@@ -109,7 +109,11 @@ ProjectRoot/
 
 After registration, the overall alignment transformation from the origin to the real data is computed by combining the transformation matrices from the registration steps. For example, in the REAL_SIDE branch:
 ```math
-T_align = translationMat_side * SecondTransformationMatrix * InitialTransformationMatrix T_final = (T_align)^{(-1)}
+T_{align} = translationMat_{side} * SecondTransformationMatrix * InitialTransformationMatrix 
+```
+
+```math
+T_{final} = (T_{align})^{(-1)}
 ```
 
 The final transformation `T_final` represents the relationship between the origin and the real data coordinate system.
